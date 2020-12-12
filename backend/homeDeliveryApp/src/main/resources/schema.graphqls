@@ -1,0 +1,34 @@
+type Order {
+	numOrder: ID!,
+	dateOrder: String,
+	dateDelivery: String,
+	status: String,
+	description: String,
+}
+
+type User {
+	id: ID!,
+	name: String,
+	surname1: String,
+	surname2: String,
+	tlfn: Int,
+	email: String,
+	password: String,
+	address: String
+}
+
+type Query{
+	order(numOrder: ID): Order
+	allOrders: [Order]
+	user(id: ID): User
+	allUsers: [User]
+}
+
+type Mutation{
+	createOrder(dateOrder: String , dateDelivery: String , status: String , description: String): Order
+	createUser(name: String, surname1: String, surname2: String, tlfn: Int, email: String, password: String, address: String): User
+	updateOrder(numOrder: ID, dateOrder: String , dateDelivery: String , status: String , description: String): Order
+	updateUser(id: ID, name: String, surname1: String, surname2: String, tlfn: Int, email: String, password: String, address: String): User
+	deleteOrder(numOrder: ID): Boolean
+	deleteUser(id: ID): Boolean
+}
