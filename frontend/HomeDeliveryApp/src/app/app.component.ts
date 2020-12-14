@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -13,7 +14,8 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private router: Router
   ) {
     this.initializeApp();
   }
@@ -23,5 +25,24 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+  toggleTheme(event){
+    if(event.detail.checked) {
+      document.body.setAttribute('color-theme', 'dark');
+    }else{
+      document.body.setAttribute('color-theme', 'light');
+    }
+  }
+
+  homeMenu() {
+    this.router.navigateByUrl("/home");
+  }
+
+  listOrders() {
+    this.router.navigateByUrl("/list-orders");
+  }
+
+  mapsPage() {
+    this.router.navigateByUrl("/maps");
   }
 }

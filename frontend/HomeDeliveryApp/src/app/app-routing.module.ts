@@ -11,6 +11,22 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'list-orders',
+    loadChildren: () => import('./list-orders/list-orders.module').then( m => m.ListOrdersPageModule)
+  },
+  {
+    path: 'maps',
+    loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
+  },
+  {
+    path: 'add-order',
+    loadChildren: () => import('./add-order/add-order.module').then( m => m.AddOrderPageModule)
+  },
+  {
+    path: 'update-order',
+    loadChildren: () => import('./update-order/update-order.module').then( m => m.UpdateOrderPageModule)
+  }
 ];
 
 @NgModule({

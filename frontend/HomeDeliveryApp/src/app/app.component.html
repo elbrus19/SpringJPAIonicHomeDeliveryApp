@@ -1,3 +1,33 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="menu-content">
+    <ion-menu contentId="menu-content" type="overlay">
+      <ion-content>
+        <ion-list>
+          <ion-item>
+          </ion-item>
+          <ion-item>
+            <img id="delivery-logo" src="../assets/deliveryLogo.jpg" expand="block"/>
+          </ion-item>
+          <ion-item (click)="homeMenu()">
+            <ion-icon name="restaurant-outline" slot="start"></ion-icon>
+            <ion-label>Menu</ion-label>
+          </ion-item>
+          <ion-item (click)="listOrders()">
+            <ion-icon name="list-circle-outline" slot="start"></ion-icon>
+            <ion-label>Pedidos</ion-label>
+          </ion-item>
+          <ion-item (click)="mapsPage()">
+            <ion-icon name="locate-outline" slot="start"></ion-icon>
+            <ion-label>Maps</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="settings-outline" slot="start"></ion-icon>
+            <ion-label>Tema Oscuro</ion-label>
+            <ion-toggle (ionChange)='toggleTheme($event)'></ion-toggle>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="menu-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>

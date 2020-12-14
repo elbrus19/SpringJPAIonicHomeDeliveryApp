@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Crear Pedido
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="orderForm" (ngSubmit)="onFormSubmit()">
+    <ion-item>
+      <ion-label position="floating">Fecha pedido</ion-label>
+      <ion-input formControlName="dateOrder" placeholder="Introduce date order" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha entrega</ion-label>
+      <ion-input formControlName="dateDelivery" placeholder="Introduce date delivery" type="text" required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Estado del pedido</ion-label>
+      <ion-input formControlName="status" placeholder="Introduce status of order" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descripción del pedido</ion-label>
+      <ion-input formControlName="description" placeholder="Introduce description" type="text" required>
+      </ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" shape="full" expand="block">Añadir Pedido</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

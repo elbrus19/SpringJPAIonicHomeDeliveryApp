@@ -3,7 +3,7 @@ type Order {
 	dateOrder: String,
 	dateDelivery: String,
 	status: String,
-	description: String,
+	description: String
 }
 
 type User {
