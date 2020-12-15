@@ -26,7 +26,15 @@ const routes: Routes = [
   {
     path: 'update-order',
     loadChildren: () => import('./update-order/update-order.module').then( m => m.UpdateOrderPageModule)
+  },  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'sing-up',
+    loadChildren: () => import('./sing-up/sing-up.module').then( m => m.SingUpPageModule)
   }
+
 ];
 
 @NgModule({

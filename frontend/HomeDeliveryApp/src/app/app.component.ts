@@ -45,4 +45,8 @@ export class AppComponent {
   mapsPage() {
     this.router.navigateByUrl("/maps");
   }
+
+  loginPage() {
+    this.router.navigateByUrl("/login");
+  }
 }

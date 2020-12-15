@@ -191,7 +191,7 @@ const uri = 'http://localhost:8080/graphql';
 
 ## Postman
 
-[Link to ends-points](https://documenter.getpostman.com/view/13225722/TVsoJX1v)
+[Link to ends-points](https://documenter.getpostman.com/view/13225722/TVspkpS9)
 
 ## Comparison of technologies
 
