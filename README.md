@@ -12,7 +12,7 @@ Project of a home delivery application.
 * [Data Model](#Data-Model)
 * [User requirements](#User-requirements)
 * [Use case](#Use-case)
-* [Intarfaces](#-Intarfaces)
+* [Interfaces](#-Interfaces)
 * [Usability](#Usability)
 * [Manuals](#Manuals)
 * [Technological stack](#Technological-stack)
@@ -26,7 +26,7 @@ Project of a home delivery application.
 
 This is a project for a food company, specifically a cafeteria called “HomeDelivery", which has a home delivery service and wants to reach the maximum number of customers possible. Therefore, it has requested the creation of an application where a registered user can place orders and, therefore, both command workers and delivery workers, can access such orders, organize and send orders to their customers in a comfortable and simple way.
 
-## Introduction
+## Data Model
 
 * E/R Diagram
 
@@ -237,9 +237,12 @@ Hybrid apps are developed using HTML5, CSS and JavaScript web technologies, whic
 
 Finally, we find the app webs. They are accessed directly from the browser of the phone or tablet, and on almost all devices it will open almost the same way thanks to the use of Responsive Web Design. It is the simplest and most economical option, since it reduces development costs. Compatibility, usability and simplicity are among its advantages.
 
-* POWER APPS
+* PWAs
 
-PowerApps is a suite of applications from Microsoft, which allows you to quickly and easily create custom applications for your business. Thus, innovating in your organization will be easier than ever. Five advantages it has are: wide availability, better data integration, automated functions, guaranteed security, higher productivity.
+PWAs are commonly defined as Apps that bring together the best of web and native applications, even coming to be understood as a midpoint or an evolved form.
+The base is web pages, but they use technologies that make their aesthetics and operation strongly resemble a native App, for example, by running in the background. They are accessed through a browser, but you can pin a shortcut on our device. 
+They are progressive and responsive, because, it adapts to any device.
+They do not need an internet connection. The visuals, the interaction and its style is the same as in native applications.Also, they are upgradeable and secure. In addition, they are easily found: you can do it through any web search engine; and they are linkable: you can share their URL, by WhatsApp, Messenger, etc.
 
 ## Planning
 
