@@ -22,14 +22,5 @@ export class MapsPage implements OnInit {
       zoomOffset: -1,
       accessToken: 'pk.eyJ1Ijoic2VyZ2lvcGExMSIsImEiOiJja2libnFvZzIxMTR6MnN0Z3ZvMXU3eGU5In0.2XrcyC4TpekDLFY-pKom8Q'
     }).addTo(map);
-
-    function onMapClick(e) {
-      popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng)
-        .openOn(map);
-    }
-
-    map.on('click', onMapClick);
   }
 }

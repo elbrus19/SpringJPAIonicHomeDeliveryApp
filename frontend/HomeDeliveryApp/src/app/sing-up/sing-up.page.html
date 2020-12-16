@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <form>
+  <form [formGroup]="signUpForm" (ngSubmit)="onRegisterFormSubmit()">
     <ion-grid>
       <ion-row color="primary" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -20,13 +20,22 @@
               <ion-input name="name" type="text" placeholder="Name" required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="email" type="email" placeholder="your@email.com" required></ion-input>
+              <ion-input name="surname1" type="text" placeholder="Surname1" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="surname2" type="text" placeholder="Surname2" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="tlfn" type="number" placeholder="Telephone Number" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="email" type="email" placeholder="Email" required></ion-input>
             </ion-item>
             <ion-item>
               <ion-input name="password" type="password" placeholder="Password" required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="confirm" type="password" placeholder="Password again" required></ion-input>
+              <ion-input name="address" type="text" placeholder="Address" required></ion-input>
             </ion-item>
           </div>
           <div padding>
