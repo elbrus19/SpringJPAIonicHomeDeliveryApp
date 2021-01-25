@@ -4,6 +4,11 @@ import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { File } from '@ionic-native/File/ngx';
+import { FileOpener } from '@ionic-native/File-opener/ngx';
+import { FileTransfer } from '@ionic-native/File-transfer/ngx';
+import { DocumentViewer } from '@ionic-native/Document-viewer/ngx';
+import { DocumentViewerOptions } from '@ionic-native/document-viewer';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +18,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent {
   constructor(
     private platform: Platform,
+    private file: File,
+    private fileTransfer: FileTransfer,
+    private fileOpener: FileOpener,
+    private documentViewer: DocumentViewer,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router
@@ -48,5 +57,36 @@ export class AppComponent {
 
   loginPage() {
     this.router.navigateByUrl("/login");
+  }
+
+  openLocalPdf() {
+    let filePath = this.file.applicationDirectory + "www/assets"
+
+    if(this.platform.is('android')){
+      let fakeName = Date.now();
+      this.file.copyFile(filePath, 'prueba.pdf', this.file.dataDirectory, `${fakeName}.pdf`).then(result => {
+        this.fileOpener.open(result.nativeURL, 'application/pdf');
+      });
+    }else{
+      const options: DocumentViewerOptions = {
+        title: 'My HomeDeliveryApp PDF'
+      }
+      this.documentViewer.viewDocument(`${filePath}/prueba.pdf`, 'application/pdf', options); 
+    }
+  }
+
+  downloadAndOpenPdf() {
+    let downloadUrl = "";
+    let path = this.file.dataDirectory;
+    const transfer = this.fileTransfer.create();
+
+    transfer.download(downloadUrl, `${path}myFileHomeDeliveryApp.pdf`).then(entry => {
+      let url = entry.toURL();
+      if(this.platform.is('ios')){
+        this.documentViewer.viewDocument(url, 'application/pdf', {}); 
+      }else{
+        this.fileOpener.open(url, 'application/pdf');
+      }
+    })
   }
 }
