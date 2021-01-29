@@ -22,6 +22,7 @@ type Query{
 	allOrders: [Order]
 	user(id: ID): User
 	allUsers: [User]
+	exportReport: Boolean
 }
 
 type Mutation{
