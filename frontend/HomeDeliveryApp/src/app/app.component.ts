@@ -9,6 +9,7 @@ import { FileOpener } from '@ionic-native/File-opener/ngx';
 import { FileTransfer } from '@ionic-native/File-transfer/ngx';
 import { DocumentViewer } from '@ionic-native/Document-viewer/ngx';
 import { DocumentViewerOptions } from '@ionic-native/document-viewer';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ export class AppComponent {
     private fileTransfer: FileTransfer,
     private fileOpener: FileOpener,
     private documentViewer: DocumentViewer,
+    private emailComposer: EmailComposer,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router
@@ -58,6 +60,23 @@ export class AppComponent {
   loginPage() {
     this.router.navigateByUrl("/login");
   }
+
+  sendMail(){
+    let email = {
+      to: 'max@mustermann.de',
+      cc: 'erika@mustermann.de',
+      bcc: ['john@doe.com', 'jane@doe.com'],
+      attachments: [
+        'file://orders.pdf'
+      ],
+      subject: 'Example Send',
+      body: 'How are you? Send email from Spain',
+      isHtml: true
+    };
+    // Send a text message using default options
+    this.emailComposer.open(email);
+}
+
 
   openLocalPdf() {
     let filePath = this.file.applicationDirectory + "www/assets"

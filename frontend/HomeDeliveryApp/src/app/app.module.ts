@@ -15,6 +15,7 @@ import { File } from '@ionic-native/File/ngx';
 import { FileOpener } from '@ionic-native/File-opener/ngx';
 import { FileTransfer } from '@ionic-native/File-transfer/ngx';
 import { DocumentViewer } from '@ionic-native/Document-viewer/ngx';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +28,8 @@ import { DocumentViewer } from '@ionic-native/Document-viewer/ngx';
     File,
     FileOpener,
     FileTransfer,
-    DocumentViewer
+    DocumentViewer,
+    EmailComposer
   ],
   bootstrap: [AppComponent]
 })
