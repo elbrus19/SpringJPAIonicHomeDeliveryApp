@@ -4,10 +4,8 @@ import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { File } from '@ionic-native/File/ngx';
-import { FileOpener } from '@ionic-native/File-opener/ngx';
-import { FileTransfer } from '@ionic-native/File-transfer/ngx';
-import { DocumentViewer } from '@ionic-native/Document-viewer/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 import { DocumentViewerOptions } from '@ionic-native/document-viewer';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
@@ -20,8 +18,6 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private file: File,
-    private fileTransfer: FileTransfer,
-    private fileOpener: FileOpener,
     private documentViewer: DocumentViewer,
     private emailComposer: EmailComposer,
     private splashScreen: SplashScreen,
@@ -63,14 +59,14 @@ export class AppComponent {
 
   sendMail(){
     let email = {
-      to: 'max@mustermann.de',
-      cc: 'erika@mustermann.de',
-      bcc: ['john@doe.com', 'jane@doe.com'],
+      to: 'cristianelielbrunamendez@alumno.ieselrincon.es',
+      cc: 'cristianelielbrunamendez@alumno.ieselrincon.es',
+      bcc: ['cristianelielbrunamendez@alumno.ieselrincon.es', 'cristianelielbrunamendez@alumno.ieselrincon.es'],
       attachments: [
-        'file://orders.pdf'
+          'file:../../backend/homeDeliveryApp/reports/orders.pdf'
       ],
       subject: 'Example Send',
-      body: 'How are you? Send email from Spain',
+      body: 'Send to report',
       isHtml: true
     };
     // Send a text message using default options
@@ -79,33 +75,10 @@ export class AppComponent {
 
 
   openLocalPdf() {
-    let filePath = this.file.applicationDirectory + "www/assets"
-
-    if(this.platform.is('android')){
-      let fakeName = Date.now();
-      this.file.copyFile(filePath, 'prueba.pdf', this.file.dataDirectory, `${fakeName}.pdf`).then(result => {
-        this.fileOpener.open(result.nativeURL, 'application/pdf');
-      });
-    }else{
+    let filePath = this.file.applicationDirectory + "www/backend/homeDeliveryApp/reports";
       const options: DocumentViewerOptions = {
         title: 'My HomeDeliveryApp PDF'
       }
-      this.documentViewer.viewDocument(`${filePath}/prueba.pdf`, 'application/pdf', options); 
+      this.documentViewer.viewDocument(`${filePath}/orders.pdf`, 'application/pdf', options); 
     }
-  }
-
-  downloadAndOpenPdf() {
-    let downloadUrl = "";
-    let path = this.file.dataDirectory;
-    const transfer = this.fileTransfer.create();
-
-    transfer.download(downloadUrl, `${path}myFileHomeDeliveryApp.pdf`).then(entry => {
-      let url = entry.toURL();
-      if(this.platform.is('ios')){
-        this.documentViewer.viewDocument(url, 'application/pdf', {}); 
-      }else{
-        this.fileOpener.open(url, 'application/pdf');
-      }
-    })
-  }
 }
