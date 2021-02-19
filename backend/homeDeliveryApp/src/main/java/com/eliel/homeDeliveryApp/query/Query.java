@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.eliel.homeDeliveryApp.entity.models.Order;
 import com.eliel.homeDeliveryApp.entity.models.User;
+import com.eliel.homeDeliveryApp.services.EmailService;
 import com.eliel.homeDeliveryApp.services.IOrderService;
 import com.eliel.homeDeliveryApp.services.IUserService;
 import com.eliel.homeDeliveryApp.services.ReportService;
@@ -27,6 +28,9 @@ public class Query implements GraphQLQueryResolver{
 	
 	@Autowired
 	private ReportService reportService;
+	
+	@Autowired
+	private EmailService emailService;
 	
 	public Optional<Order> getOrder(long numOrder) {
 		return orderService.findOne(numOrder);
@@ -46,6 +50,11 @@ public class Query implements GraphQLQueryResolver{
 	
 	public boolean exportReport() {
 		reportService.exportReport();
+		return true;
+	}
+	
+	public boolean sendMail() {
+		emailService.sendMail();
 		return true;
 	}
 }
