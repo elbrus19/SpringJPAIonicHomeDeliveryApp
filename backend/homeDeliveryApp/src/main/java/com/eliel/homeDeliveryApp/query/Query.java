@@ -53,8 +53,8 @@ public class Query implements GraphQLQueryResolver{
 		return true;
 	}
 	
-	public boolean sendMail() {
-		emailService.sendMail();
+	public boolean sendMail(String to) {
+		emailService.sendMail(to);
 		return true;
 	}
 }

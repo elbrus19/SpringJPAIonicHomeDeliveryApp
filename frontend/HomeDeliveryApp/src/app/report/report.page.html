@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Informe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="mailForm" (ngSubmit)="onFormSubmit()">
+    <div text-center>
+      <h3>Envío del informe por correo</h3>
+    </div>
+    <ion-item>
+      <ion-label position="stacked">Correo</ion-label>
+      <ion-input formControlName="mail" type="email" ngModel required></ion-input>
+      <span class="error ion-padding" *ngIf="isSubmitted">
+        Email es requerido.
+      </span>
+    </ion-item>
+    <div padding>
+      <ion-button type="submit" color="success" expand="block">Enviar</ion-button>
+    </div>
+  </form>
+</ion-content>

@@ -23,6 +23,7 @@ type Query{
 	user(id: ID): User
 	allUsers: [User]
 	exportReport: Boolean
+	sendMail(to: String): Boolean
 }
 
 type Mutation{

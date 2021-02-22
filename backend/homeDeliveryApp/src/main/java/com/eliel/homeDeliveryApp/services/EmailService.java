@@ -15,12 +15,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmailService {
 	
-	public void sendMail() {
+	public void sendMail(String to) {
 		 
 		try {
-		  String to = "cebm@gmail.com"; // to address. It can be any like gmail, hotmail etc.
-		  final String from = "cebm@gmail.com"; // from address. As this is using Gmail SMTP.
-		  final String password = "E159753456852"; // password for from mail address. 
+		  final String from = "cebm1920@gmail.com"; // from address. As this is using Gmail SMTP.
+		  final String password = "e1920123456789"; // password for from mail address. 
 		 
 		  Properties prop = new Properties();
 		  prop.put("mail.smtp.host", "smtp.gmail.com");

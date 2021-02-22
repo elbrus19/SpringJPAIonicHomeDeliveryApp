@@ -33,6 +33,14 @@ const routes: Routes = [
   {
     path: 'sing-up',
     loadChildren: () => import('./sing-up/sing-up.module').then( m => m.SingUpPageModule)
+  },
+  {
+    path: 'mail',
+    loadChildren: () => import('./mail/mail.module').then( m => m.MailPageModule)
+  },
+  {
+    path: 'report',
+    loadChildren: () => import('./report/report.module').then( m => m.ReportPageModule)
   }
 
 ];

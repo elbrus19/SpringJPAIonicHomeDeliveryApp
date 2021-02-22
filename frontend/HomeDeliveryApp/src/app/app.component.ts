@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -9,13 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 import { DocumentViewerOptions } from '@ionic-native/document-viewer';
-//import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
-const SEND_MAIL = gql`
-query{
-  sendMail
-}
-`;
 
 @Component({
   selector: 'app-root',
@@ -25,10 +17,8 @@ query{
 export class AppComponent {
   constructor(
     private platform: Platform,
-    private apollo: Apollo,
     private file: File,
     private documentViewer: DocumentViewer,
-    //private emailComposer: EmailComposer,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router
@@ -66,29 +56,9 @@ export class AppComponent {
     this.router.navigateByUrl("/login");
   }
 
-  sendMail(){
-    this.apollo
-      .watchQuery({
-        query: SEND_MAIL
-      });
+  reportPage() {
+    this.router.navigateByUrl("/report");
   }
-
-//   sendMail(){
-//     let email = {
-//       to: 'cristianelielbrunamendez@alumno.ieselrincon.es',
-//       cc: 'cristianelielbrunamendez@alumno.ieselrincon.es',
-//       bcc: ['cristianelielbrunamendez@alumno.ieselrincon.es', 'cristianelielbrunamendez@alumno.ieselrincon.es'],
-//       attachments: [
-//           'file:../../backend/homeDeliveryApp/reports/orders.pdf'
-//       ],
-//       subject: 'Example Send',
-//       body: 'Send to report',
-//       isHtml: true
-//     };
-//     // Send a text message using default options
-//     this.emailComposer.open(email);
-// }
-
 
   openLocalPdf() {
     let filePath = this.file.applicationDirectory + "www/backend/homeDeliveryApp/reports";
