@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 
 import { OrderService } from './order.service';
 
@@ -13,4 +13,10 @@ describe('ServicesService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('does some test where it is injected',
+    inject([OrderService], (service: OrderService) => {
+      expect(service).toBeTruthy();
+    })
+  );
 });
